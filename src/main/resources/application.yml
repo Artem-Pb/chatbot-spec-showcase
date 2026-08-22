@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: table-bot-showcase
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5433}/${DB_NAME:tablebot}
+    username: ${DB_USER:tablebot}
+    password: ${DB_PASSWORD:tablebot_pass}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+  sql:
+    init:
+      mode: always
+
+server:
+  port: ${SERVER_PORT:8080}
+
+telegram:
+  bot-token: ${TELEGRAM_BOT_TOKEN:demo-token}
+  webhook-secret: ${TELEGRAM_WEBHOOK_SECRET:stub}
+  webhook-url: ${TELEGRAM_WEBHOOK_URL:https://example.com/webhook/telegram}
+  admin-chat-id: ${TELEGRAM_ADMIN_CHAT_ID:0}
+  api-base-url: ${TELEGRAM_API_BASE_URL:https://api.telegram.org}
